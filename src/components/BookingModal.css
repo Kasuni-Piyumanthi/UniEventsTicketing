@@ -1,0 +1,122 @@
+/* src/components/BookingModal.css */
+
+/* ── Overlay ── */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Modal shell ── */
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  width: 100%; max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.modal-uni   { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.2rem; }
+.modal-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.2rem; }
+.modal-close {
+  background: var(--surface2); border: none; color: var(--muted);
+  width: 32px; height: 32px; border-radius: 8px;
+  cursor: pointer; font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { color: var(--text); }
+
+.modal-body   { padding: 1.5rem; }
+.modal-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: 0.75rem; }
+
+/* ── Tab group ── */
+.tab-group {
+  display: flex; background: var(--surface2);
+  border-radius: 10px; padding: 3px; margin-bottom: 1.5rem;
+}
+.tab-btn {
+  flex: 1; padding: 0.5rem; border: none; border-radius: 8px;
+  cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500;
+  transition: all 0.2s; background: transparent; color: var(--muted);
+}
+.tab-btn.active { background: var(--accent2); color: white; }
+
+/* ── Ticket card ── */
+.event-info-row {
+  display: flex; gap: 1rem; font-size: 0.83rem;
+  color: var(--muted); margin-bottom: 1.25rem; flex-wrap: wrap;
+}
+
+.ticket-card {
+  background: linear-gradient(135deg, var(--surface2), #1a1a2e);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.ticket-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(200,245,96,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+.ticket-info { flex: 1; }
+.ticket-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
+.ticket-sub  { font-size: 0.78rem; color: var(--muted); }
+.ticket-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+.ticket-price { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--accent); }
+
+.qty-control { display: flex; align-items: center; gap: 0.5rem; }
+.qty-btn {
+  width: 28px; height: 28px; border-radius: 7px;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text); cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center; transition: all 0.15s;
+}
+.qty-btn:hover { border-color: var(--accent); color: var(--accent); }
+.qty-val { font-weight: 600; min-width: 20px; text-align: center; font-size: 0.9rem; }
+
+/* ── Stall grid ── */
+.stall-intro { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+
+.stall-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem; margin: 1rem 0;
+}
+.stall-cell {
+  aspect-ratio: 1; border-radius: 8px;
+  border: 2px solid var(--border); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; color: var(--muted); font-weight: 500; transition: all 0.15s;
+}
+.stall-cell.available:hover { border-color: var(--accent); color: var(--accent); background: rgba(200,245,96,0.05); }
+.stall-cell.taken    { background: var(--surface2); cursor: not-allowed; opacity: 0.5; }
+.stall-cell.selected { border-color: var(--accent); background: rgba(200,245,96,0.12); color: var(--accent); }
+
+.stall-legend { display: flex; gap: 1.25rem; margin-top: 0.75rem; }
+.legend-item  { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: var(--muted); }
+.legend-dot   { width: 10px; height: 10px; border-radius: 3px; }
+.selected-dot { background: var(--accent); border: 1px solid var(--accent); }
+.taken-dot    { background: var(--surface2); border: 1px solid var(--border); }
+.avail-dot    { border: 1px solid var(--border); }
+
+.stall-selected-notice {
+  margin-top: 1rem;
+  background: rgba(200,245,96,0.07);
+  border: 1px solid rgba(200,245,96,0.2);
+  border-radius: 10px; padding: 0.85rem; font-size: 0.88rem;
+}
+
+/* ── Verify box ── */
+.verify-box {
+  background: rgba(95,111,255,0.08);
+  border: 1px solid rgba(95,111,255,0.25);
+  border-radius: 12px; padding: 1rem; margin-bottom: 1.25rem;
+}
+.verify-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.verify-box p { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }

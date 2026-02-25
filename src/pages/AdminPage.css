@@ -1,0 +1,33 @@
+/* src/pages/AdminPage.css */
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.admin-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+.admin-stat-icon  { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.admin-stat-val   { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--accent); }
+.admin-stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+
+/* table */
+.admin-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.admin-table th {
+  text-align: left; padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted); font-weight: 500; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.admin-table td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); }
+.admin-table tr:last-child td { border-bottom: none; }
+
+.type-badge { padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.72rem; font-weight: 600; }
+.badge-gov  { background: rgba(95,111,255,0.25); color: #a0aaff; border: 1px solid rgba(95,111,255,0.4); }
+.badge-priv { background: rgba(255,202,58,0.2);  color: var(--ticket); border: 1px solid rgba(255,202,58,0.3); }

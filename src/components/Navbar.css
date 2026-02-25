@@ -1,0 +1,81 @@
+/* src/components/Navbar.css */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  background: rgba(10, 10, 15, 0.9);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  flex-wrap: wrap;
+}
+
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-tabs {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.nav-tab {
+  padding: 0.4rem 1rem;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  background: transparent;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.nav-tab.active      { background: var(--accent); color: #0a0a0f; }
+.nav-tab:hover:not(.active) { color: var(--text); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Mobile tab bar shown below nav */
+.mobile-tabs {
+  display: none;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0.75rem 0 0.5rem;
+  overflow-x: auto;
+}
+
+@media (max-width: 640px) {
+  .desktop-only { display: none; }
+  .mobile-tabs  { display: flex; }
+  .nav { height: auto; padding: 0.75rem 1rem; }
+}
